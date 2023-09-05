@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <title>Teachers' Day Celebration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #1a1a1a;
+    }
+
+    .countdown-container {
+      text-align: center;
+      position: relative;
+    }
+
+    .countdown {
+      font-size: 10rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      animation: colorChange 5s infinite;
+    }
+
+    .message-container {
+      display: none;
+      text-align: center;
+      position: relative;
+      animation: bounce 2s infinite;
+    }
+
+    .message {
+      font-size: 10rem;
+      margin-top: 1rem;
+      color: #FF0000;
+      animation: colorChange 1s infinite alternate;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .confetti-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      display: none;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    @keyframes colorChange {
+      0% {
+        color: #ff0066;
+      }
+      25% {
+        color: #00cc66;
+      }
+      50% {
+        color: #ffcc00;
+      }
+      75% {
+        color: #3399ff;
+      }
+      100% {
+        color: #ff0066;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <img class="confetti-background" src="star.gif" alt="Confetti Background">
+  <div class="countdown-container">
+    <div class="countdown" id="countdown">
+      10
+    </div>
+    <div class="message-container">
+      <div class="message" id="message">
+        Happy Teachers' Day!
+      </div>
+    </div>
+      <a href="http://127.0.0.1:58214/mix.html" >
+    <button id="showButton" class="hide" style="
+  background-color: #ff0066;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+">
+  Click Me
+</button>
+      </a>
+
+  </div>
+
+  <script>
+    const countdownElement = document.getElementById("countdown");
+    const messageContainer = document.querySelector(".message-container");
+    const confettiBackground = document.querySelector(".confetti-background");
+    const showButton = document.getElementById("showButton");
+
+    let count = 10;
+
+    function updateCountdown() {
+      countdownElement.textContent = count;
+    }
+
+    function countdown() {
+      updateCountdown();
+      count--;
+
+      if (count >= 0) {
+        setTimeout(countdown, 1000);
+      } else {
+        countdownElement.style.display = "none";
+        messageContainer.style.display = "block";
+        confettiBackground.style.display = "block";
+        showButton.classList.remove("hide"); // Show the button
+      }
+    }
+
+    showButton.addEventListener("click", function () {
+      // You can add additional actions here if needed
+    });
+
+    countdown();
+  </script>
+</body>
+</html>

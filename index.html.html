@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('poly.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .content {
+            text-align: center;
+            color:black;
+        }
+
+        .animated-heading {
+            animation: fadeInUp 1.5s ease-in-out;
+            font-size: 5rem; /* Increase font size */
+            margin-bottom: 0.5rem;
+            color: black;
+        }
+
+        .animated-subheading {
+            animation: fadeInUp 1.5s ease-in-out 0.5s;
+            font-size: 3rem; /* Increase font size */
+            color: yellow;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .button {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #ff9900;
+            color: white;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e58100;
+        }
+    </style>
+    <title>Welcome Page</title>
+</head>
+<body>
+    <div class="content">
+        <h1 class="animated-heading">Welcome to Our Website</h1>
+        <p class="animated-subheading">Created by Yogyta and Mariyam</p>
+         <a href="http://127.0.0.1:58214/buttonhp.html" class="button">Start </a> <!-- Replace with the actual link -->
+ </div>
+   
+</body>
+</html>

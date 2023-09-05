@@ -1,0 +1,294 @@
+/* Reset default margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set background for the body */
+body {
+    background: url(flo.jpg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1200px; /* Adjust the top margin as needed */
+    margin-bottom: 300px;
+    background-color: white; /* Add a background color */
+}
+
+/* Container for the cards */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    height: auto;
+}
+
+/* Birthday card styles */
+.birthday-card {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    border: 10px solid #ef5050;
+    margin: 100px auto;
+    margin-bottom: 100px;
+    margin-top: 300; /* Adjust the top margin to align with the slider */
+    -webkit-box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 255, 255, 0.5))), url("bluestar.gif");
+    background-image: url("bluestar.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.birthday-card .text {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    font-family: 'Nobile', sans-serif;
+    color: yellow;
+}
+
+.birthday-card .text > p {
+    font-size: 1.5rem;
+    color: #331717;
+    list-style: 1.4;
+    font-style: bold;
+    text-align: center;
+    margin: 30px auto 0 auto;
+}
+
+.birthday-card .text .title {
+    font-size: 2rem;
+    margin: 60px auto 60px auto;
+    font-style: bold;
+    color: deeppink;
+}
+
+.birthday-card .cover-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #ef5050;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: perspective(800px) rotateY(0deg);
+    transform: perspective(800px) rotateY(0deg);
+    -webkit-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+
+.birthday-card .cover-outer img {
+    -webkit-box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+}
+
+.birthday-card .cover-inner {
+    position: absolute;
+    width: 400px;
+    height: 450px;
+    border: 10px solid #ef5050;
+    background-color: #ef5050;
+    margin: -10px 0px 0 -10px;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    -webkit-filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: perspective(800px) rotateY(0deg);
+    transform: perspective(800px) rotateY(0deg);
+    -webkit-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    overflow: hidden;
+}
+
+.birthday-card .cover-inner img {
+    -webkit-transform: rotateY(170deg);
+    transform: rotateY(170deg);
+}
+
+.birthday-card:hover .cover-outer {
+    -webkit-transform: perspective(800px) rotateY(-170deg);
+    transform: perspective(800px) rotateY(-170deg);
+}
+
+.birthday-card:hover .cover-inner {
+    -webkit-transform: perspective(800px) rotateY(-170deg);
+    transform: perspective(800px) rotateY(-170deg);
+    -webkit-box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the Slider */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px; /* Adjust the spacing between the card and slider */
+}
+
+.slider {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotate 80s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes rotate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+@media (max-width: 100px) {
+    .birthday-card {
+        /* Adjust styles for smaller screens */
+    }
+
+    .slider-container {
+        /* Adjust styles for smaller screens */
+    }
+}
+
+.slider span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)*45deg)) translate(350px);
+}
+
+.slider span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: 5s;
+}
+
+.slider span:hover img {
+    transform: translateY(-50px) scale(1.2);
+}
+
+/* Book card styles */
+.book {
+    width: 300px;
+    height: 400px;
+    background-color: lightblue;
+    border: 2px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    perspective: 1000px;
+    margin-left: 20px; 
+    margin-top: 300px;
+    margin-bottom: 56px;
+    /* Adjust the margin to position it next to the birthday card */
+}
+
+.book .cover {
+    width: 50%;
+    height: 100%;
+    background-color: #E0115F;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 2s ease-in-out;
+}
+
+.book .left,
+.book .right {
+    width: 100%;
+    height: 100%;
+    background-color: #E0115F;
+    position: absolute;
+    top: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.book .left {
+    transform-origin: right;
+    transform: rotateY(0deg);
+}
+
+.book .right {
+    transform-origin: left;
+    transform: rotateY(-180deg);
+}
+
+.book .pages {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border: 2px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+}
+
+.book:hover .cover {
+    transform: rotateY(90deg);
+}
+
+.book:hover .left,
+.book:hover .right {
+    opacity: 0;
+}
+
+.book:hover .pages {
+    opacity: 1;
+    transform: translateX(0);
+}
+ .button-container {
+            text-align: center;
+            margin-top: 20px; /* Adjust the margin as needed */
+        }
+
+        .custom-button {
+            padding: 10px 20px; /* Adjust the padding as needed */
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Text color */
+            border: none;
+            cursor: pointer;
+            font-size: 16px; /* Font size */
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3; /* Hover color */
+        }
